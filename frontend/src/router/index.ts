@@ -9,6 +9,7 @@ const Secondarycircuit = () => import('@/views/secondarycircuit/index.vue')
 const Relaytest = () => import('@/views/relaytest/index.vue')
 const Faultrecord = () => import('@/views/faultrecord/index.vue')
 const Tripstat = () => import('@/views/tripstat/index.vue')
+const Techrenov = () => import('@/views/techrenov/index.vue')
 const Transformermaint = () => import('@/views/transformermaint/index.vue')
 const Breaker = () => import('@/views/breaker/index.vue')
 const Dcsystem = () => import('@/views/dcsystem/index.vue')
@@ -32,6 +33,7 @@ const router = createRouter({
     { path: '/relaytest', name: 'relaytest', component: Relaytest },
     { path: '/faultrecord', name: 'faultrecord', component: Faultrecord },
     { path: '/tripstat', name: 'tripstat', component: Tripstat },
+    { path: '/techrenov', name: 'techrenov', component: Techrenov },
     { path: '/transformermaint', name: 'transformermaint', component: Transformermaint },
     { path: '/breaker', name: 'breaker', component: Breaker },
     { path: '/dcsystem', name: 'dcsystem', component: Dcsystem },

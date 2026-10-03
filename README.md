@@ -50,6 +50,7 @@ npm run build
 | 保护校验 | `relaytest` | 校验记录 | 校验编号、装置名称、校验项目 |
 | 故障录波 | `faultrecord` | 录波记录 | 录波编号、故障线路、故障类型 |
 | 保护动作统计 | `tripstat` | 动作统计 | 统计编号、所属线路、动作次数 |
+| 保护技改项目 | `techrenov` | 技改项目 | 项目编号、批复预算、累计费用 |
 | 主变检修 | `transformermaint` | 主变检修记录 | 检修编号、主变名称、检修类别 |
 | 断路器维护 | `breaker` | 断路器 | 设备编号、所属间隔、断路器型号 |
 | 直流系统监测 | `dcsystem` | 直流监测记录 | 监测编号、所属变电站、蓄电池组号 |
@@ -65,6 +66,12 @@ npm run build
 
 - 每个模块的页面在 `frontend/src/views/<模块>/index.vue`，页面只负责渲染，读写统一走
   `frontend/src/api/local-service.ts`。
+- 保护技改项目（`techrenov`）有专用规则，集中在 `frontend/src/api/techrenov-service.ts`：
+  状态只按 立项→评审→实施→结算 依次流转，跳级拒收，已结算锁死不许改数；办理结算时
+  结算单缺发票号或结算日期会被挡回并指明缺哪一格；结算单预算与项目台账预算不一致时
+  以批复的立项预算为准（页面提供「预算对账」）；同一笔费用重复提交只计一次；结算完成后
+  自动把关联主变写入主变检修的待排期清单。结算单存在 `techrenovsettle` 数据集里，
+  不单独占导航。
 - 字段、状态、动作与流转目标集中在 `frontend/src/data/modules.ts`；示例数据在
   `frontend/src/data/seed.ts`。
 - 状态流转只允许在 `local-service.ts` 里改，页面组件不做业务判断。
