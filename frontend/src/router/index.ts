@@ -19,6 +19,7 @@ const Patrol = () => import('@/views/patrol/index.vue')
 const Meteringcheck = () => import('@/views/meteringcheck/index.vue')
 const Settingapprove = () => import('@/views/settingapprove/index.vue')
 const Safetytool = () => import('@/views/safetytool/index.vue')
+const Renovation = () => import('@/views/renovation/index.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -42,6 +43,7 @@ const router = createRouter({
     { path: '/meteringcheck', name: 'meteringcheck', component: Meteringcheck },
     { path: '/settingapprove', name: 'settingapprove', component: Settingapprove },
     { path: '/safetytool', name: 'safetytool', component: Safetytool },
+    { path: '/renovation', name: 'renovation', component: Renovation },
   ],
 })
 

@@ -85,3 +85,6 @@ desktop.ini
 *.db
 *.pid
 *.seed
+
+# 领域规则测试临时产物
+.tmp-test/
